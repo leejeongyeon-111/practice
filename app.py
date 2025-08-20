@@ -139,7 +139,7 @@ with tabs[2]:
         st.pyplot(fig2)
         st.dataframe(pk, use_container_width=True, hide_index=True)
     with c2:
-        st.write(""**주차 예약**"")
+        st.write("""**주차 예약**""")
         st.text_input("차량 번호", placeholder="12가 3456")
         st.selectbox("예약 구역", options=list(pk["zone"]))
         st.selectbox("시간대", options=["09:00-11:00","11:00-13:00","13:00-15:00","15:00-17:00","17:00-19:00"])
