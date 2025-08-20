@@ -139,7 +139,7 @@ with tabs[2]:
         st.pyplot(fig2)
         st.dataframe(pk, use_container_width=True, hide_index=True)
     with c2:
-        st.write(\"\"\"**주차 예약 (데모)**  
+        st.write("""**주차 예약**""")
 - 멤버십 등급별 예약 우선권 제공  
 - 예약 시간대: 2시간 단위  
 - QR/번호판 인식으로 비대면 입차\"\"\")
