@@ -44,7 +44,7 @@ with st.container():
     st.markdown("<div class='topbar'>", unsafe_allow_html=True)
     c1,c2,c3,c4 = st.columns([1.4,3,3,2])
     with c1:
-        st.markdown("**PREMIUM OUTLETS** \n신세계사이먼", unsafe_allow_html=True)
+        st.markdown("**PREMIUM OUTLETS** \nSHINSEGAE SIMON", unsafe_allow_html=True)
     with c2:
         # st.segmented_control is not a standard Streamlit widget.
         # Replacing it with st.selectbox for similar functionality.
