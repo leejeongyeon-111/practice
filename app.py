@@ -139,14 +139,11 @@ with tabs[2]:
         st.pyplot(fig2)
         st.dataframe(pk, use_container_width=True, hide_index=True)
     with c2:
-        st.write(""**주차 예약**""
-- 멤버십 등급별 예약 우선권 제공  
-- 예약 시간대: 2시간 단위  
-- QR/번호판 인식으로 비대면 입차\"\"\")
+        st.write(""**주차 예약**"")
         st.text_input("차량 번호", placeholder="12가 3456")
         st.selectbox("예약 구역", options=list(pk["zone"]))
         st.selectbox("시간대", options=["09:00-11:00","11:00-13:00","13:00-15:00","15:00-17:00","17:00-19:00"])
-        st.button("예약 요청 (데모)")
+        st.button("예약 요청")
     st.caption("※ 실제 서비스에서는 주차 IoT/게이트 API 연동으로 실시간 점유율·예약 가능 수량을 반영합니다.")
 
 # 고객센터
