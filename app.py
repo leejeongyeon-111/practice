@@ -158,5 +158,9 @@ with tabs[3]:
     st.text_input("연락처")
     st.text_area("문의 내용")
     st.button("문의 접수 (데모)")
-
-st.markdown(\"\"\"\n<div style='margin-top:2rem; color:#7a7a7a; font-size:12px'>\n© Demo — 본 프로젝트는 학습/포트폴리오 목적의 데모입니다. 실제 상표/브랜드는 각 사의 자산입니다.\n</div>\n\"\"\", unsafe_allow_html=True)
+    
+    st.markdown("""
+    <div style='margin-top:2rem; color:#7a7a7a; font-size:12px'>
+    © Demo — 본 프로젝트는 학습/포트폴리오 목적의 데모입니다. 실제 상표/브랜드는 각 사의 자산입니다.
+    </div>
+""", unsafe_allow_html=True)
