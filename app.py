@@ -9,7 +9,7 @@ import time
 
 # 페이지 설정
 st.set_page_config(
-    page_title="신세계 프리미엄 아울렛",
+    page_title="신세계사이먼 프리미엄 아울렛",
     page_icon="🛍️",
     layout="wide",
     initial_sidebar_state="expanded"
