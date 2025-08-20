@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 import json, os
@@ -45,9 +44,11 @@ with st.container():
     st.markdown("<div class='topbar'>", unsafe_allow_html=True)
     c1,c2,c3,c4 = st.columns([1.4,3,3,2])
     with c1:
-        st.markdown("**PREMIUM OUTLETS**  \n신세계사이먼", unsafe_allow_html=True)
+        st.markdown("**PREMIUM OUTLETS** \n신세계사이먼", unsafe_allow_html=True)
     with c2:
-        sel_key = st.segmented_control("지점", options=keys, format_func=lambda k: loc_map[k], default=keys[0])
+        # st.segmented_control is not a standard Streamlit widget.
+        # Replacing it with st.selectbox for similar functionality.
+        sel_key = st.selectbox("지점", options=keys, format_func=lambda k: loc_map[k])
     with c3:
         gq = st.text_input("통합검색 (브랜드/매장)", "", placeholder="예: NIKE, COS, STARBUCKS")
     with c4:
@@ -131,7 +132,7 @@ with tabs[2]:
     rate = int(round(total_used/total_cap*100))
     c1,c2 = st.columns([2,1])
     with c1:
-        st.write(f"**전체 혼잡도: {rate}%**  · 사용 {total_used} / 수용 {total_cap} 대")
+        st.write(f"**전체 혼잡도: {rate}%** · 사용 {total_used} / 수용 {total_cap} 대")
         fig2 = plt.figure()
         (pk["used"]/pk["capacity"]*100).round(1).plot(kind="bar")
         plt.xticks(range(len(pk)), pk["zone"])
