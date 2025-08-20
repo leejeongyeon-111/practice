@@ -5,7 +5,7 @@ from datetime import datetime
 import matplotlib.pyplot as plt
 from streamlit_autorefresh import st_autorefresh
 
-st.set_page_config(page_title="신세계 프리미엄 아울렛 (Demo)", page_icon="🛍️", layout="wide")
+st.set_page_config(page_title="신세계사이먼 프리미엄 아울렛", page_icon="🛍️", layout="wide")
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 
