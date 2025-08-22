@@ -10,7 +10,6 @@ import time
 # 페이지 설정
 st.set_page_config(
     page_title="신세계사이먼 프리미엄 아울렛",
-    page_icon="🛍️",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -224,7 +223,7 @@ def main():
     # 헤더
     st.markdown("""
     <div class="main-header">
-        <h1>🛍️ 신세계 프리미엄 아울렛</h1>
+        <h1>신세계 프리미엄 아울렛</h1>
         <h3>실시간 주차 현황 서비스</h3>
     </div>
     """, unsafe_allow_html=True)
@@ -235,7 +234,7 @@ def main():
     
     # 사이드바
     with st.sidebar:
-        st.header("🚗 매장 선택")
+        st.header("매장 선택")
         selected_outlet = st.selectbox(
             "매장을 선택하세요:",
             list(outlet_data.keys()),
@@ -245,8 +244,8 @@ def main():
         st.markdown("---")
         st.header("서비스")
         service_menu = st.radio(
-            "주차 현황 보기:",
-            ["주차 현황", "매장 정보", "전체 현황"]
+            "더 자세히 알아보기:",
+            ["주차 현황", "매장 정보", "매장별 전체 주차 현황"]
         )
         
         st.markdown("---")
@@ -402,8 +401,8 @@ def show_store_info(selected_outlet, outlet_data):
         st.write(f"**특이사항:** {info['special']}")
         
         st.subheader("🕒 운영시간")
-        st.write("**매장:** 10:00 - 22:00")
-        st.write("**주차장:** 24시간 운영") #수정필요함
+        st.write("**일반 매장:** 10:30 - 21:00")
+        st.write("**주차장:** 10:30 - 21:00") 
         
     with col2:
         st.subheader("🚗 주차장 구성")
