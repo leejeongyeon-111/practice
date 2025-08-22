@@ -118,7 +118,6 @@ def load_outlet_data():
                 {"name": "야외 B구역", "total": 675, "type": "outdoor"},
                 {"name": "야외 C구역", "total": 675, "type": "outdoor"}
             ],
-            "special": "프리미엄 파킹존 운영(신세계 앱 등록 필요)"
         },
         "여주 프리미엄 아울렛": {
             "address": "경기도 여주시 명품로 360",
@@ -137,7 +136,6 @@ def load_outlet_data():
                 {"name": "야외 F구역", "total": 25, "type": "outdoor"},
                 {"name": "야외 H구역", "total": 25, "type": "outdoor"}
             ],
-            "special": "프리미엄 빌리지 주차장 별도 운영"
         },
         "파주 프리미엄 아울렛": {
             "address": "경기도 파주시 탄현면 필승로 200",
@@ -151,7 +149,6 @@ def load_outlet_data():
                 {"name": "야외 C구역", "total": 0, "type": "outdoor"}, # 구역명만 추가
                 {"name": "야외 D구역", "total": 0, "type": "outdoor"}  # 구역명만 추가
             ],
-            "special": "2019년 확장으로 외부 주차장 추가 마련"
         },
         "부산 프리미엄 아울렛": {
             "address": "부산광역시 기장군 장안읍 정관로 1133",
@@ -167,7 +164,6 @@ def load_outlet_data():
                 {"name": "야외 E구역", "total": 40, "type": "outdoor"},
                 {"name": "야외 F구역", "total": 40, "type": "outdoor"}
             ],
-            "special": "프리미엄 파킹존 별도, 전기차 충전소, 셔틀버스 서비스 제공"
         },
         "제주 프리미엄 아울렛": {
             "address": "제주특별자치도 서귀포시 안덕면 신화역사로 304번길 38",
@@ -177,7 +173,6 @@ def load_outlet_data():
             "areas": [
                 {"name": "신화월드 랜딩 리조트 앞 주차장", "total": 2500, "type": "outdoor"}
             ],
-            "special": "신화월드 리조트와 공용 주차장 이용 가능"
         }
     }
 
