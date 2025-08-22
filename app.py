@@ -109,6 +109,7 @@ def load_outlet_data():
             "address": "경기도 시흥시 서해안로 699",
             "phone": "1644-4001",
             "fee": "무료", 
+            "total": 2700,
             "areas": [
                 {"name": "주차타워 1층", "total": 225, "type": "indoor"},
                 {"name": "주차타워 2층", "total": 225, "type": "indoor"},
@@ -116,8 +117,7 @@ def load_outlet_data():
                 {"name": "야외 A구역", "total": 675, "type": "outdoor"},
                 {"name": "야외 B구역", "total": 675, "type": "outdoor"},
                 {"name": "야외 C구역", "total": 675, "type": "outdoor"}
-            ],
-             "total": 2700,
+            ]
         },
         "여주 프리미엄 아울렛": {
             "address": "경기도 여주시 명품로 360",
@@ -146,15 +146,15 @@ def load_outlet_data():
                 {"name": "주차타워 A동", "total": 434, "type": "indoor"},
                 {"name": "주차타워 B동", "total": 433, "type": "indoor"},
                 {"name": "주차타워 E동", "total": 433, "type": "indoor"},
-                {"name": "야외 C구역", "total": 0, "type": "outdoor"}, # 구역명만 추가
-                {"name": "야외 D구역", "total": 0, "type": "outdoor"}  # 구역명만 추가
+                {"name": "야외 C구역", "total": 0, "type": "outdoor"}, 
+                {"name": "야외 D구역", "total": 0, "type": "outdoor"}  
             ]
         },
         "부산 프리미엄 아울렛": {
             "address": "부산광역시 기장군 장안읍 정관로 1133",
             "phone": "1644-4001",
             "fee": "무료",
-            "total": 1000, # 총면수는 기존과 동일, 세부 구역만 변경
+            "total": 1000, 
             "areas": [
                 {"name": "주차타워", "total": 600, "type": "indoor"},
                 {"name": "주차장 C구역", "total": 50, "type": "indoor"},
@@ -177,7 +177,7 @@ def load_outlet_data():
     }
 
 # 실시간 주차 현황 시뮬레이션
-@st.cache_data(ttl=60)  # 1분마다 캐시 갱신
+@st.cache_data(ttl=60)  
 def generate_parking_status(outlet_data):
     """실시간 주차 현황을 시뮬레이션합니다."""
     status = {}
@@ -187,8 +187,7 @@ def generate_parking_status(outlet_data):
         total_occupied = 0
         
         for area in data["areas"]:
-            # 실제로는 센서나 API에서 데이터를 받아올 부분
-            # 여기서는 시뮬레이션을 위해 랜덤 값 생성
+            # 시뮬레이션을 위해 랜덤 값 생성
             base_rate = 0.6 if area["type"] == "indoor" else 0.5
             variation = random.uniform(-0.2, 0.3)
             occupancy_rate = max(0.1, min(0.95, base_rate + variation))
@@ -221,11 +220,11 @@ def get_status_indicator(occupancy_rate):
     """주차 가능률에 따른 상태 표시기 반환"""
     available_rate = 1 - occupancy_rate
     if available_rate >= 0.4:
-        return "여유", "status-high"
+        return "여유", "status-high"    #40% 이상 남아 있는 경우
     elif available_rate >= 0.2:
-        return "보통", "status-medium"
+        return "보통", "status-medium"  #20% 이상 40% 미만 남아 있는 경우
     else:
-        return "혼잡", "status-low"
+        return "혼잡", "status-low"     #20% 미만 남아 있는 경우
 
 def main():
     # 헤더
