@@ -305,7 +305,6 @@ def main():
     if image_url:
         st.image(image_url, use_container_width=True)
     
-    st.header(f"{selected_outlet} {service_menu}")
     st.markdown("---")
 
     # 메인 컨텐츠
