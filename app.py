@@ -223,7 +223,7 @@ def main():
     # 헤더
     st.markdown("""
     <div class="main-header">
-        <h1>PREMIUM OUTLETS \nSHINSEGAE SIMON</h1>
+        <h1>PREMIUM OUTLETS  \nSHINSEGAE SIMON</h1>
         <h3>실시간 주차 현황 서비스</h3>
     </div>
     """, unsafe_allow_html=True)
