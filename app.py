@@ -439,7 +439,8 @@ def show_store_info(selected_outlet, outlet_data):
         if "food" in info:
             st.write(f"**전문 식당가:** {info['food']}")
             
-        st.write("**주차장:** AM 10:30 ~ PM 21:00") 
+        if selected_outlet != "제주점":
+            st.write("**주차장:** AM 10:30 ~ PM 21:00") 
 
         if "note" in info:
             st.markdown(
