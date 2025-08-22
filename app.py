@@ -171,7 +171,7 @@ def load_outlet_data():
             "fee": "무료",
             "total": 2500,
             "areas": [
-                {"name": "신화월드 랜딩 리조트 앞 주차장", "total": 2500, "type": "outdoor"}
+                {"name": "신화월드 랜딩관 지상주차장", "total": 2500, "type": "outdoor"}
             ]
         }
     }
