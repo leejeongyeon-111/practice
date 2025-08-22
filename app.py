@@ -117,7 +117,8 @@ def load_outlet_data():
                 {"name": "야외 A구역", "total": 675, "type": "outdoor"},
                 {"name": "야외 B구역", "total": 675, "type": "outdoor"},
                 {"name": "야외 C구역", "total": 675, "type": "outdoor"}
-            ]
+            ],
+           "hours": "AM 10:30 - PM 21:00"
         },
         "여주 프리미엄 아울렛": {
             "address": "경기도 여주시 명품로 360",
@@ -135,7 +136,8 @@ def load_outlet_data():
                 {"name": "야외 E구역", "total": 25, "type": "outdoor"},
                 {"name": "야외 F구역", "total": 25, "type": "outdoor"},
                 {"name": "야외 H구역", "total": 25, "type": "outdoor"}
-            ]
+            ],
+            "hours": "AM 10:30 - PM 21:00"
         },
         "파주 프리미엄 아울렛": {
             "address": "경기도 파주시 탄현면 필승로 200",
@@ -148,7 +150,8 @@ def load_outlet_data():
                 {"name": "주차타워 E동", "total": 200, "type": "indoor"},
                 {"name": "야외 C구역", "total": 300, "type": "outdoor"}, 
                 {"name": "야외 D구역", "total": 300, "type": "outdoor"}  
-            ]
+            ],
+            "hours": "AM 10:30 - PM 21:00"
         },
         "부산 프리미엄 아울렛": {
             "address": "부산광역시 기장군 장안읍 정관로 1133",
@@ -163,7 +166,8 @@ def load_outlet_data():
                 {"name": "야외 B구역", "total": 120, "type": "outdoor"},
                 {"name": "야외 E구역", "total": 120, "type": "outdoor"},
                 {"name": "야외 F구역", "total": 80, "type": "outdoor"}
-            ]
+            ],
+            "hours": "AM 10:30 - PM 21:00"
         },
         "제주 프리미엄 아울렛": {
             "address": "제주특별자치도 서귀포시 안덕면 신화역사로 304번길 38",
@@ -172,7 +176,8 @@ def load_outlet_data():
             "total": 2500,
             "areas": [
                 {"name": "신화월드 랜딩관 지상주차장", "total": 2500, "type": "outdoor"}
-            ]
+            ],
+            "hours": "AM 10:30 - PM 21:00"
         }
     }
 
@@ -408,7 +413,7 @@ def show_store_info(selected_outlet, outlet_data):
         st.write(f"**총 주차면:** {info['total']:,}대")
         
         st.subheader("🕒 운영시간")
-        st.write("**매장:** 10:30 - 21:00")
+        st.write("f"**일반 매장:** {info['hours']})
         st.write("**주차장:** 10:30 - 21:00") 
         
     with col2:
