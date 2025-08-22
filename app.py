@@ -268,7 +268,7 @@ def main():
     parking_status = generate_parking_status(outlet_data)
     
     # 사이드바
-     with st.sidebar:
+ with st.sidebar:
         st.header("메뉴")
         service_menu = st.radio(
             "원하는 서비스를 선택하세요:",
