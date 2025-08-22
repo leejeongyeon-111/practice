@@ -101,19 +101,22 @@ st.markdown("""
 
 # 매장 데이터
 @st.cache_data
+# 매장 데이터
+@st.cache_data
 def load_outlet_data():
     return {
         "시흥 프리미엄 아울렛": {
             "address": "경기도 시흥시 서해안로 699",
             "phone": "1644-4001",
             "fee": "무료",
-            "total": 2700,
+            "total": 2700, # 총면수는 기존과 동일, 세부 구역만 변경
             "areas": [
-                {"name": "주차타워 A동", "total": 800, "type": "indoor"},
-                {"name": "주차타워 B동", "total": 800, "type": "indoor"},
-                {"name": "야외주차장 1구역", "total": 400, "type": "outdoor"},
-                {"name": "야외주차장 2구역", "total": 400, "type": "outdoor"},
-                {"name": "야외주차장 3구역", "total": 300, "type": "outdoor"}
+                {"name": "주차타워 1층", "total": 675, "type": "indoor"},
+                {"name": "주차타워 2층", "total": 675, "type": "indoor"},
+                {"name": "주차타워 3층", "total": 675, "type": "indoor"},
+                {"name": "야외 A구역", "total": 225, "type": "outdoor"},
+                {"name": "야외 B구역", "total": 225, "type": "outdoor"},
+                {"name": "야외 C구역", "total": 225, "type": "outdoor"}
             ],
             "special": "프리미엄 파킹존 운영(신세계 앱 등록 필요)"
         },
@@ -121,13 +124,18 @@ def load_outlet_data():
             "address": "경기도 여주시 명품로 360",
             "phone": "1644-4001",
             "fee": "무료",
-            "total": 1000,
+            "total": 1000, # 총면수는 기존과 동일, 세부 구역만 변경
             "areas": [
-                {"name": "실내주차장", "total": 400, "type": "indoor"},
-                {"name": "야외주차장 A구역", "total": 200, "type": "outdoor"},
-                {"name": "야외주차장 B구역", "total": 150, "type": "outdoor"},
-                {"name": "야외주차장 C구역", "total": 150, "type": "outdoor"},
-                {"name": "야외주차장 D구역", "total": 100, "type": "outdoor"}
+                {"name": "주차타워 B2F", "total": 200, "type": "indoor"},
+                {"name": "주차타워 B1F", "total": 200, "type": "indoor"},
+                {"name": "주차타워 1F", "total": 200, "type": "indoor"},
+                {"name": "주차타워 2F", "total": 200, "type": "indoor"},
+                {"name": "야외 A구역", "total": 50, "type": "outdoor"},
+                {"name": "야외 B구역", "total": 50, "type": "outdoor"},
+                {"name": "야외 D구역", "total": 25, "type": "outdoor"},
+                {"name": "야외 E구역", "total": 25, "type": "outdoor"},
+                {"name": "야외 F구역", "total": 25, "type": "outdoor"},
+                {"name": "야외 H구역", "total": 25, "type": "outdoor"}
             ],
             "special": "프리미엄 빌리지 주차장 별도 운영"
         },
@@ -135,11 +143,13 @@ def load_outlet_data():
             "address": "경기도 파주시 탄현면 필승로 200",
             "phone": "1644-4001",
             "fee": "무료",
-            "total": 1300,
+            "total": 1300, # 총면수는 기존과 동일, 세부 구역만 변경
             "areas": [
-                {"name": "주차타워 A동", "total": 500, "type": "indoor"},
-                {"name": "주차타워 B동", "total": 500, "type": "indoor"},
-                {"name": "외부 주차장", "total": 300, "type": "outdoor"}
+                {"name": "주차타워 A동", "total": 434, "type": "indoor"},
+                {"name": "주차타워 B동", "total": 433, "type": "indoor"},
+                {"name": "주차타워 E동", "total": 433, "type": "indoor"},
+                {"name": "야외 C구역", "total": 0, "type": "outdoor"}, # 구역명만 추가
+                {"name": "야외 D구역", "total": 0, "type": "outdoor"}  # 구역명만 추가
             ],
             "special": "2019년 확장으로 외부 주차장 추가 마련"
         },
@@ -147,22 +157,25 @@ def load_outlet_data():
             "address": "부산광역시 기장군 장안읍 정관로 1133",
             "phone": "1644-4001",
             "fee": "무료",
-            "total": 869,
+            "total": 1000, # 총면수는 기존과 동일, 세부 구역만 변경
             "areas": [
                 {"name": "주차타워", "total": 600, "type": "indoor"},
-                {"name": "임시주차장", "total": 242, "type": "outdoor"},
-                {"name": "장애인 전용", "total": 27, "type": "special"}
+                {"name": "주차장 C구역", "total": 50, "type": "indoor"},
+                {"name": "주차장 G구역", "total": 50, "type": "indoor"},
+                {"name": "주차장 H구역", "total": 50, "type": "indoor"},
+                {"name": "야외 B구역", "total": 40, "type": "outdoor"},
+                {"name": "야외 E구역", "total": 40, "type": "outdoor"},
+                {"name": "야외 F구역", "total": 40, "type": "outdoor"}
             ],
-            "special": "전기차 충전소 66대 규모, 셔틀버스 서비스 제공"
+            "special": "프리미엄 파킹존 별도, 전기차 충전소, 셔틀버스 서비스 제공"
         },
         "제주 프리미엄 아울렛": {
             "address": "제주특별자치도 서귀포시 안덕면 신화역사로 304번길 38",
             "phone": "1644-4001",
             "fee": "무료",
-            "total": 3000,
+            "total": 2500,
             "areas": [
-                {"name": "아울렛 전용 주차장", "total": 1500, "type": "outdoor"},
-                {"name": "신화월드 공용 주차장", "total": 1500, "type": "outdoor"}
+                {"name": "신화월드 랜딩 리조트 앞 주차장", "total": 2500, "type": "outdoor"}
             ],
             "special": "신화월드 리조트와 공용 주차장 이용 가능"
         }
