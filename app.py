@@ -263,35 +263,31 @@ def get_status_indicator(occupancy_rate):
         return "혼잡", "status-low"     #20% 미만 남아 있는 경우
 
 def main():
-    # 헤더
-    st.markdown("""
-    <div class="main-header">
-        <h1>PREMIUM OUTLETS</h1>
-        <h1>SHINSEGAE SIMON</h1>
-        <h3>실시간 주차 현황 서비스</h3>
-    </div>
-    """, unsafe_allow_html=True)
-    
     # 데이터 로드
     outlet_data = load_outlet_data()
     parking_status = generate_parking_status(outlet_data)
     
     # 사이드바
-    with st.sidebar:
-        st.header("매장 선택")
-        selected_outlet = st.selectbox(
-            "매장을 선택하세요:",
-            list(outlet_data.keys()),
+     with st.sidebar:
+        st.header("메뉴")
+        service_menu = st.radio(
+            "원하는 서비스를 선택하세요:",
+            ["홈", "주차 현황", "매장 정보", "매장별 전체 주차 현황"],
             index=0
         )
         
-        st.markdown("---")
-        st.header("서비스")
-        service_menu = st.radio(
-            "더 자세히 알아보기:",
-            ["매장 정보", "주차 현황", "매장별 전체 주차 현황"]
-        )
-        
+        # '홈'이 아닐 경우에만 매장 선택 드롭다운 표시
+        if service_menu != "홈":
+            st.markdown("---")
+            st.header("매장 선택")
+            selected_outlet = st.selectbox(
+                "매장을 선택하세요:",
+                list(outlet_data.keys()),
+                index=0
+            )
+        else:
+            selected_outlet = None # '홈' 페이지에서는 선택된 매장이 없음
+            
         st.markdown("---")
         st.info("💡 데이터는 1분마다 자동 갱신됩니다.")
         
@@ -303,18 +299,42 @@ def main():
     outlet_info = outlet_data[selected_outlet]
     image_url = outlet_info.get("image_url") 
 
-    # 이미지 출력 (매장별 사진)
+
     if image_url:
         st.image(image_url, use_container_width=True)
 
     
     # 메인 컨텐츠
-    if service_menu == "주차 현황":
-        show_parking_status(selected_outlet, outlet_data, parking_status)
-    elif service_menu == "매장 정보":
-        show_store_info(selected_outlet, outlet_data)
+    if service_menu == "홈":
+        # 홈 페이지에서는 아무 내용도 표시하지 않음 (배너만 보이게)
+        pass
     else:
-        show_overall_status(outlet_data, parking_status)
+        if selected_outlet:
+            # 매장별 사진과 제목 표시
+            outlet_info = outlet_data[selected_outlet]
+            image_url = outlet_info.get("image_url")
+            if image_url:
+                st.image(image_url, use_column_width=True)
+            
+            st.header(f"### {selected_outlet} {service_menu}")
+            st.markdown("---")
+
+            # 선택된 메뉴에 따라 함수 호출
+            if service_menu == "주차 현황":
+                show_parking_status(selected_outlet, outlet_data, parking_status)
+            elif service_menu == "매장 정보":
+                show_store_info(selected_outlet, outlet_data)
+            else: # 매장별 전체 주차 현황
+                show_overall_status(outlet_data, parking_status)
+
+  st.markdown("""
+    <div class="main-header">
+        <h1>PREMIUM OUTLETS</h1>
+        <h1>SHINSEGAE SIMON</h1>
+        <h3>실시간 주차 현황 서비스</h3>
+    </div>
+    """, unsafe_allow_html=True)
+    
 
 def show_parking_status(selected_outlet, outlet_data, parking_status):
     """선택된 매장의 주차 현황 표시"""
