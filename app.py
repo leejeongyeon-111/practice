@@ -413,7 +413,7 @@ def show_store_info(selected_outlet, outlet_data):
         st.write(f"**총 주차면:** {info['total']:,}대")
         
         st.subheader("🕒 운영시간")
-        st.write(f"**일반 매장:** {info['hours']})
+        st.write(f"**일반 매장:** {info['hours']}")
         st.write("**주차장:** 10:30 - 21:00") 
         
     with col2:
