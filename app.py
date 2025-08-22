@@ -438,7 +438,9 @@ def show_store_info(selected_outlet, outlet_data):
         
         if "food" in info:
             st.write(f"**전문 식당가:** {info['food']}")
-        
+            
+        st.write("**주차장:** AM 10:30 ~ PM 21:00") 
+
         if "note" in info:
             st.markdown(
                 f"""
@@ -448,8 +450,6 @@ def show_store_info(selected_outlet, outlet_data):
                 """,
                 unsafe_allow_html=True
             )
-            
-        st.write("**주차장:** AM 10:30 ~ PM 21:00") 
         
     with col2:
         st.subheader("🅿️ 주차장 구성")
