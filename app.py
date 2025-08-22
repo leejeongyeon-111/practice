@@ -267,25 +267,21 @@ def main():
     
     # 사이드바
     with st.sidebar:
-        st.header("메뉴")
-        service_menu = st.radio(
-            "원하는 서비스를 선택하세요:",
-            ["홈", "주차 현황", "매장 정보", "매장별 전체 주차 현황"],
+        st.header("매장 선택")
+        selected_outlet = st.selectbox(
+            "매장을 선택하세요:",
+            list(outlet_data.keys()),
             index=0
         )
         
-        # '홈'이 아닐 경우에만 매장 선택 드롭다운 표시
-        if service_menu != "홈":
-            st.markdown("---")
-            st.header("매장 선택")
-            selected_outlet = st.selectbox(
-                "매장을 선택하세요:",
-                list(outlet_data.keys()),
-                index=0
-            )
-        else:
-            selected_outlet = None
-            
+        st.markdown("---")
+        st.header("서비스")
+        service_menu = st.radio(
+            "더 자세히 알아보기:",
+            ["주차 현황", "매장 정보", "매장별 전체 주차 현황"],
+            index=0
+        )
+        
         st.markdown("---")
         st.info("💡 데이터는 1분마다 자동 갱신됩니다.")
         
@@ -294,33 +290,32 @@ def main():
             st.cache_data.clear()
             st.rerun()
 
-    # 메인 컨텐츠
-    if service_menu == "홈":
-        st.markdown("""
-        <div class="main-header">
-            <h1>PREMIUM OUTLETS</h1>
-            <h1>SHINSEGAE SIMON</h1>
-            <h3>실시간 주차 현황 서비스</h3>
-        </div>
-        """, unsafe_allow_html=True)
-        
-    else:
-        if selected_outlet:
-            outlet_info = outlet_data[selected_outlet]
-            image_url = outlet_info.get("image_url")
-            
-            if image_url:
-                st.image(image_url, use_container_width=True)
-            
-            st.header(f"### {selected_outlet} {service_menu}")
-            st.markdown("---")
+    # 메인 헤드 배너
+    st.markdown("""
+    <div class="main-header">
+        <h1>PREMIUM OUTLETS</h1>
+        <h1>SHINSEGAE SIMON</h1>
+        <h3>실시간 주차 현황 서비스</h3>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # 선택된 매장의 이미지 및 제목 표시 (홈 선택 기능 제거)
+    outlet_info = outlet_data[selected_outlet]
+    image_url = outlet_info.get("image_url")
+    
+    if image_url:
+        st.image(image_url, use_container_width=True)
+    
+    st.header(f"### {selected_outlet} {service_menu}")
+    st.markdown("---")
 
-            if service_menu == "주차 현황":
-                show_parking_status(selected_outlet, outlet_data, parking_status)
-            elif service_menu == "매장 정보":
-                show_store_info(selected_outlet, outlet_data)
-            else: # 매장별 전체 주차 현황
-                show_overall_status(outlet_data, parking_status)
+    # 메인 컨텐츠
+    if service_menu == "주차 현황":
+        show_parking_status(selected_outlet, outlet_data, parking_status)
+    elif service_menu == "매장 정보":
+        show_store_info(selected_outlet, outlet_data)
+    else:
+        show_overall_status(outlet_data, parking_status)
 
 def show_parking_status(selected_outlet, outlet_data, parking_status):
     """선택된 매장의 주차 현황 표시"""
@@ -410,7 +405,7 @@ def show_parking_status(selected_outlet, outlet_data, parking_status):
     
     fig.update_layout(
         title=f"{selected_outlet} 전체 주차 현황",
-        annotations=[dict(text=f"{status['total']:,}<br>총 주차면", x=0.5, y=0.5,
+        annotations=[dict(text=f"{status['total']:,}<br>총 주차면", x=0.5, y=0.5, 
                          font_size=16, showarrow=False)]
     )
     
