@@ -258,7 +258,7 @@ def main():
         st.markdown("---")
         st.header("서비스")
         service_menu = st.radio(
-            "더 자세히 알아보기:",
+            "주차 안내:",
             ["주차 현황", "매장 정보", "매장별 전체 주차 현황"]
         )
         
@@ -266,7 +266,7 @@ def main():
         st.info("💡 데이터는 1분마다 자동 갱신됩니다.")
         
         # 새로고침 버튼
-        if st.button("🔄 즉시 새로고침"):
+        if st.button("🔄 새로고침"):
             st.cache_data.clear()
             st.rerun()
     
@@ -280,7 +280,7 @@ def main():
 
 def show_parking_status(selected_outlet, outlet_data, parking_status):
     """선택된 매장의 주차 현황 표시"""
-    st.header(f"🚗 {selected_outlet} 주차 현황")
+    st.header(f"🅿️ {selected_outlet} 주차 현황")
     
     outlet_info = outlet_data[selected_outlet]
     status = parking_status[selected_outlet]
@@ -415,11 +415,11 @@ def show_store_info(selected_outlet, outlet_data):
         st.write(f"**특이사항:** {info['special']}")
         
         st.subheader("🕒 운영시간")
-        st.write("**일반 매장:** 10:30 - 21:00")
+        st.write("**매장:** 10:30 - 21:00")
         st.write("**주차장:** 10:30 - 21:00") 
         
     with col2:
-        st.subheader("🚗 주차장 구성")
+        st.subheader("🅿️ 주차장 구성")
         for area in info['areas']:
             type_icon = {
                 'indoor': '🏢',
@@ -428,16 +428,10 @@ def show_store_info(selected_outlet, outlet_data):
             }
             st.write(f"{type_icon.get(area['type'], '🚗')} **{area['name']}**: {area['total']}대")
         
-        st.subheader("🎯 편의시설")
-        st.write("• 고객 서비스 센터")
-        st.write("• 유아휴게실")
-        st.write("• 전기차 충전소")
-        st.write("• 무료 Wi-Fi")
-        st.write("• 휠체어 대여")
 
 def show_overall_status(outlet_data, parking_status):
     """전체 매장 현황 표시"""
-    st.header("🗺️ 전체 매장 주차 현황")
+    st.header("전체 매장 주차 현황")
     
     # 전체 통계
     total_spaces = sum(data['total'] for data in outlet_data.values())
