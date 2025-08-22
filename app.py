@@ -117,7 +117,7 @@ def load_outlet_data():
                 {"name": "야외 A구역", "total": 675, "type": "outdoor"},
                 {"name": "야외 B구역", "total": 675, "type": "outdoor"},
                 {"name": "야외 C구역", "total": 675, "type": "outdoor"}
-            ],
+            ]
         },
         "여주 프리미엄 아울렛": {
             "address": "경기도 여주시 명품로 360",
@@ -135,7 +135,7 @@ def load_outlet_data():
                 {"name": "야외 E구역", "total": 25, "type": "outdoor"},
                 {"name": "야외 F구역", "total": 25, "type": "outdoor"},
                 {"name": "야외 H구역", "total": 25, "type": "outdoor"}
-            ],
+            ]
         },
         "파주 프리미엄 아울렛": {
             "address": "경기도 파주시 탄현면 필승로 200",
@@ -148,7 +148,7 @@ def load_outlet_data():
                 {"name": "주차타워 E동", "total": 433, "type": "indoor"},
                 {"name": "야외 C구역", "total": 0, "type": "outdoor"}, # 구역명만 추가
                 {"name": "야외 D구역", "total": 0, "type": "outdoor"}  # 구역명만 추가
-            ],
+            ]
         },
         "부산 프리미엄 아울렛": {
             "address": "부산광역시 기장군 장안읍 정관로 1133",
@@ -163,7 +163,7 @@ def load_outlet_data():
                 {"name": "야외 B구역", "total": 40, "type": "outdoor"},
                 {"name": "야외 E구역", "total": 40, "type": "outdoor"},
                 {"name": "야외 F구역", "total": 40, "type": "outdoor"}
-            ],
+            ]
         },
         "제주 프리미엄 아울렛": {
             "address": "제주특별자치도 서귀포시 안덕면 신화역사로 304번길 38",
@@ -172,7 +172,7 @@ def load_outlet_data():
             "total": 2500,
             "areas": [
                 {"name": "신화월드 랜딩 리조트 앞 주차장", "total": 2500, "type": "outdoor"}
-            ],
+            ]
         }
     }
 
