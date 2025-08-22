@@ -393,7 +393,7 @@ def show_parking_status(selected_outlet, outlet_data, parking_status):
     
     # 시각화
     st.markdown("---")
-    st.subheader("📊 주차 현황 차트")
+    st.subheader(" 주차 현황 ")
     
     # 도넛 차트
     fig = go.Figure(data=[go.Pie(
@@ -433,7 +433,7 @@ def show_parking_status(selected_outlet, outlet_data, parking_status):
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     st.markdown(f"""
     <div class="update-time">
-        📅 마지막 업데이트: {current_time}
+        마지막 업데이트: {current_time}
     </div>
     """, unsafe_allow_html=True)
 
@@ -534,7 +534,7 @@ def show_overall_status(outlet_data, parking_status):
             st.progress(1 - status['overall_occupancy'])
     
     st.markdown("---")
-    st.subheader("📊 매장별 주차 현황 비교")
+    st.subheader("매장별 주차 현황 비교")
     
     outlet_names = list(parking_status.keys())
     outlet_available = [status['total_available'] for status in parking_status.values()]
