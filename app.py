@@ -305,7 +305,7 @@ def main():
 
     # 이미지 출력 (매장별 사진)
     if image_url:
-        st.image(image_url, use_column_width=True)
+        st.image(image_url, use_column_width=False)
 
     # 매장 이름과 함께 서비스 제목 표시
     st.header(f"### {selected_outlet} {service_menu}")
