@@ -101,14 +101,12 @@ st.markdown("""
 
 # 매장 데이터
 @st.cache_data
-# 매장 데이터
-@st.cache_data
 def load_outlet_data():
     return {
         "시흥 프리미엄 아울렛": {
             "address": "경기도 시흥시 서해안로 699",
             "phone": "1644-4001",
-            "fee": "무료", 
+            "fee": "무료",
             "total": 2700,
             "areas": [
                 {"name": "주차타워 1층", "total": 225, "type": "indoor"},
@@ -118,21 +116,21 @@ def load_outlet_data():
                 {"name": "야외 B구역", "total": 675, "type": "outdoor"},
                 {"name": "야외 C구역", "total": 675, "type": "outdoor"}
             ],
-           "hours": "AM 10:30 ~ PM 21:00",
-           "food": "AM 11:00 ~ PM 21:00",
-           "note": """\
-           * 설 당일(1/29) 영업 시간: 12:00~21:00  
-           * 동절기(11~4월) 일반 매장 영업시간 안내 - 평일(월~목) 10:30~20:30, 주말(금~일) 및 공휴일 10:30~21:00  
-           * 식당가 폐점 30분 전 주문 마감  
-           * 일부 매장 30분 조기폐점""",
-           "parking_hours": "AM 10:30 ~ PM 21:00",
-           "image_url": "https://app.premiumoutlets.co.kr/assets/attach/view/storeImage/5/storeImageKrPc?cache=2025-08-06T16:25:36"
+            "hours": "AM 10:30 ~ PM 21:00",
+            "food": "AM 11:00 ~ PM 21:00",
+            "note": """\
+            * 설 당일(1/29) 영업 시간: 12:00~21:00  
+            * 동절기(11~4월) 일반 매장 영업시간 안내 - 평일(월~목) 10:30~20:30, 주말(금~일) 및 공휴일 10:30~21:00  
+            * 식당가 폐점 30분 전 주문 마감  
+            * 일부 매장 30분 조기폐점""",
+            "parking_hours": "AM 10:30 ~ PM 21:00",
+            "image_url": "https://app.premiumoutlets.co.kr/assets/attach/view/storeImage/5/storeImageKrPc?cache=2025-08-06T16:25:36"
         },
         "여주 프리미엄 아울렛": {
             "address": "경기도 여주시 명품로 360",
             "phone": "1644-4001",
             "fee": "무료",
-            "total": 1000, # 총면수는 기존과 동일, 세부 구역만 변경
+            "total": 1000,
             "areas": [
                 {"name": "주차타워 B2F", "total": 200, "type": "indoor"},
                 {"name": "주차타워 B1F", "total": 200, "type": "indoor"},
@@ -158,13 +156,13 @@ def load_outlet_data():
             "address": "경기도 파주시 탄현면 필승로 200",
             "phone": "1644-4001",
             "fee": "무료",
-            "total": 1300, 
+            "total": 1300,
             "areas": [
                 {"name": "주차타워 A동", "total": 250, "type": "indoor"},
                 {"name": "주차타워 B동", "total": 250, "type": "indoor"},
                 {"name": "주차타워 E동", "total": 200, "type": "indoor"},
-                {"name": "야외 C구역", "total": 300, "type": "outdoor"}, 
-                {"name": "야외 D구역", "total": 300, "type": "outdoor"}  
+                {"name": "야외 C구역", "total": 300, "type": "outdoor"},
+                {"name": "야외 D구역", "total": 300, "type": "outdoor"}
             ],
             "hours": "AM 10:30 - PM 21:00",
             "food": "AM 11:00 ~ PM 21:00",
@@ -178,7 +176,7 @@ def load_outlet_data():
             "address": "부산광역시 기장군 장안읍 정관로 1133",
             "phone": "1644-4001",
             "fee": "무료",
-            "total": 862, 
+            "total": 862,
             "areas": [
                 {"name": "주차타워", "total": 500, "type": "indoor"},
                 {"name": "주차장 C구역", "total": 20, "type": "indoor"},
@@ -213,7 +211,7 @@ def load_outlet_data():
     }
 
 # 실시간 주차 현황 시뮬레이션
-@st.cache_data(ttl=60)  
+@st.cache_data(ttl=60)
 def generate_parking_status(outlet_data):
     """실시간 주차 현황을 시뮬레이션합니다."""
     status = {}
@@ -256,11 +254,11 @@ def get_status_indicator(occupancy_rate):
     """주차 가능률에 따른 상태 표시기 반환"""
     available_rate = 1 - occupancy_rate
     if available_rate >= 0.4:
-        return "여유", "status-high"    #40% 이상 남아 있는 경우
+        return "여유", "status-high"
     elif available_rate >= 0.2:
-        return "보통", "status-medium"  #20% 이상 40% 미만 남아 있는 경우
+        return "보통", "status-medium"
     else:
-        return "혼잡", "status-low"     #20% 미만 남아 있는 경우
+        return "혼잡", "status-low"
 
 def main():
     # 데이터 로드
@@ -268,7 +266,7 @@ def main():
     parking_status = generate_parking_status(outlet_data)
     
     # 사이드바
- with st.sidebar:
+    with st.sidebar:
         st.header("메뉴")
         service_menu = st.radio(
             "원하는 서비스를 선택하세요:",
@@ -286,7 +284,7 @@ def main():
                 index=0
             )
         else:
-            selected_outlet = None # '홈' 페이지에서는 선택된 매장이 없음
+            selected_outlet = None
             
         st.markdown("---")
         st.info("💡 데이터는 1분마다 자동 갱신됩니다.")
@@ -296,45 +294,33 @@ def main():
             st.cache_data.clear()
             st.rerun()
 
-    outlet_info = outlet_data[selected_outlet]
-    image_url = outlet_info.get("image_url") 
-
-
-    if image_url:
-        st.image(image_url, use_container_width=True)
-
-    
     # 메인 컨텐츠
     if service_menu == "홈":
-        # 홈 페이지에서는 아무 내용도 표시하지 않음 (배너만 보이게)
-        pass
+        st.markdown("""
+        <div class="main-header">
+            <h1>PREMIUM OUTLETS</h1>
+            <h1>SHINSEGAE SIMON</h1>
+            <h3>실시간 주차 현황 서비스</h3>
+        </div>
+        """, unsafe_allow_html=True)
+        
     else:
         if selected_outlet:
-            # 매장별 사진과 제목 표시
             outlet_info = outlet_data[selected_outlet]
             image_url = outlet_info.get("image_url")
+            
             if image_url:
-                st.image(image_url, use_column_width=True)
+                st.image(image_url, use_container_width=True)
             
             st.header(f"### {selected_outlet} {service_menu}")
             st.markdown("---")
 
-            # 선택된 메뉴에 따라 함수 호출
             if service_menu == "주차 현황":
                 show_parking_status(selected_outlet, outlet_data, parking_status)
             elif service_menu == "매장 정보":
                 show_store_info(selected_outlet, outlet_data)
             else: # 매장별 전체 주차 현황
                 show_overall_status(outlet_data, parking_status)
-
-  st.markdown("""
-    <div class="main-header">
-        <h1>PREMIUM OUTLETS</h1>
-        <h1>SHINSEGAE SIMON</h1>
-        <h3>실시간 주차 현황 서비스</h3>
-    </div>
-    """, unsafe_allow_html=True)
-    
 
 def show_parking_status(selected_outlet, outlet_data, parking_status):
     """선택된 매장의 주차 현황 표시"""
@@ -424,7 +410,7 @@ def show_parking_status(selected_outlet, outlet_data, parking_status):
     
     fig.update_layout(
         title=f"{selected_outlet} 전체 주차 현황",
-        annotations=[dict(text=f"{status['total']:,}<br>총 주차면", x=0.5, y=0.5, 
+        annotations=[dict(text=f"{status['total']:,}<br>총 주차면", x=0.5, y=0.5,
                          font_size=16, showarrow=False)]
     )
     
@@ -470,6 +456,8 @@ def show_store_info(selected_outlet, outlet_data):
         st.write(f"**전화번호:** {info['phone']}")
         st.write(f"**주차요금:** {info['fee']}")
         st.write(f"**총 주차면:** {info['total']:,}대")
+        if "special" in info:
+            st.write(f"**특이사항:** {info['special']}")
         
         st.subheader("🕒 운영시간")
         st.write(f"**일반 매장:** {info['hours']}")
@@ -488,7 +476,7 @@ def show_store_info(selected_outlet, outlet_data):
                 """,
                 unsafe_allow_html=True
             )
-        
+            
     with col2:
         st.subheader("🅿️ 주차장 구성")
         for area in info['areas']:
@@ -499,12 +487,15 @@ def show_store_info(selected_outlet, outlet_data):
             }
             st.write(f"{type_icon.get(area['type'], '🚗')} **{area['name']}**: {area['total']}대")
         
+        if "amenities" in info:
+            st.subheader("🎯 편의시설")
+            for amenity in info['amenities']:
+                st.write(f"• {amenity}")
 
 def show_overall_status(outlet_data, parking_status):
     """전체 매장 현황 표시"""
     st.header("전체 매장 주차 현황")
     
-    # 전체 통계
     total_spaces = sum(data['total'] for data in outlet_data.values())
     total_occupied = sum(status['total_occupied'] for status in parking_status.values())
     total_available = total_spaces - total_occupied
@@ -522,7 +513,6 @@ def show_overall_status(outlet_data, parking_status):
     
     st.markdown("---")
     
-    # 매장별 현황 카드
     cols = st.columns(2)
     
     for i, (outlet_name, status) in enumerate(parking_status.items()):
@@ -552,7 +542,6 @@ def show_overall_status(outlet_data, parking_status):
             
             st.progress(1 - status['overall_occupancy'])
     
-    # 전체 현황 차트
     st.markdown("---")
     st.subheader("📊 매장별 주차 현황 비교")
     
@@ -574,7 +563,6 @@ def show_overall_status(outlet_data, parking_status):
     
     st.plotly_chart(fig, use_container_width=True)
     
-    # 실시간 업데이트 표시
     st.markdown("---")
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     st.markdown(f"""
