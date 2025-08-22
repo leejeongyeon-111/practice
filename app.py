@@ -245,6 +245,7 @@ def main():
         st.markdown("---")
         st.header("서비스")
         service_menu = st.radio(
+            "주차 현황 보기:",
             ["주차 현황", "매장 정보", "전체 현황"]
         )
         
