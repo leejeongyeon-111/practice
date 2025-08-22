@@ -111,12 +111,12 @@ def load_outlet_data():
             "fee": "무료",
             "total": 2700, # 총면수는 기존과 동일, 세부 구역만 변경
             "areas": [
-                {"name": "주차타워 1층", "total": 675, "type": "indoor"},
-                {"name": "주차타워 2층", "total": 675, "type": "indoor"},
-                {"name": "주차타워 3층", "total": 675, "type": "indoor"},
-                {"name": "야외 A구역", "total": 225, "type": "outdoor"},
-                {"name": "야외 B구역", "total": 225, "type": "outdoor"},
-                {"name": "야외 C구역", "total": 225, "type": "outdoor"}
+                {"name": "주차타워 1층", "total": 225, "type": "indoor"},
+                {"name": "주차타워 2층", "total": 225, "type": "indoor"},
+                {"name": "주차타워 3층", "total": 225, "type": "indoor"},
+                {"name": "야외 A구역", "total": 675, "type": "outdoor"},
+                {"name": "야외 B구역", "total": 675, "type": "outdoor"},
+                {"name": "야외 C구역", "total": 675, "type": "outdoor"}
             ],
             "special": "프리미엄 파킹존 운영(신세계 앱 등록 필요)"
         },
