@@ -407,7 +407,6 @@ def show_store_info(selected_outlet, outlet_data):
         st.write(f"**전화번호:** {info['phone']}")
         st.write(f"**주차요금:** {info['fee']}")
         st.write(f"**총 주차면:** {info['total']:,}대")
-        st.write(f"**특이사항:** {info['special']}")
         
         st.subheader("🕒 운영시간")
         st.write("**매장:** 10:30 - 21:00")
