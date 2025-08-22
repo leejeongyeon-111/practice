@@ -108,8 +108,7 @@ def load_outlet_data():
         "시흥 프리미엄 아울렛": {
             "address": "경기도 시흥시 서해안로 699",
             "phone": "1644-4001",
-            "fee": "무료",
-            "total": 2700, # 총면수는 기존과 동일, 세부 구역만 변경
+            "fee": "무료", 
             "areas": [
                 {"name": "주차타워 1층", "total": 225, "type": "indoor"},
                 {"name": "주차타워 2층", "total": 225, "type": "indoor"},
@@ -117,7 +116,8 @@ def load_outlet_data():
                 {"name": "야외 A구역", "total": 675, "type": "outdoor"},
                 {"name": "야외 B구역", "total": 675, "type": "outdoor"},
                 {"name": "야외 C구역", "total": 675, "type": "outdoor"}
-            ]
+            ],
+             "total": 2700,
         },
         "여주 프리미엄 아울렛": {
             "address": "경기도 여주시 명품로 360",
