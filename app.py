@@ -293,13 +293,12 @@ def main():
     # 메인 헤드 배너
     st.markdown("""
     <div class="main-header">
-        <h1>PREMIUM OUTLETS</h1>
-        <h1>SHINSEGAE SIMON</h1>
-        <h3>실시간 주차 현황 서비스</h3>
-    </div>
+    <h1 style="font-size: 36px; margin: 0;">PREMIUM OUTLETS</h1>
+    <h1 style="font-size: 28px; margin: 0;">SHINSEGAE SIMON</h1>
+    <h3 style="font-size: 18px; margin-top: 10px;">실시간 주차 현황 서비스</h3>
+</div>
     """, unsafe_allow_html=True)
     
-    # 선택된 매장의 이미지 및 제목 표시 (홈 선택 기능 제거)
     outlet_info = outlet_data[selected_outlet]
     image_url = outlet_info.get("image_url")
     
