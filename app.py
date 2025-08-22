@@ -306,7 +306,7 @@ def main():
     if image_url:
         st.image(image_url, use_container_width=True)
     
-    st.header(f"### {selected_outlet} {service_menu}")
+    st.header(f"{selected_outlet} {service_menu}")
     st.markdown("---")
 
     # 메인 컨텐츠
@@ -482,10 +482,6 @@ def show_store_info(selected_outlet, outlet_data):
             }
             st.write(f"{type_icon.get(area['type'], '🚗')} **{area['name']}**: {area['total']}대")
         
-        if "amenities" in info:
-            st.subheader("🎯 편의시설")
-            for amenity in info['amenities']:
-                st.write(f"• {amenity}")
 
 def show_overall_status(outlet_data, parking_status):
     """전체 매장 현황 표시"""
