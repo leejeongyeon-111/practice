@@ -125,7 +125,8 @@ def load_outlet_data():
            * 동절기(11~4월) 일반 매장 영업시간 안내 - 평일(월~목) 10:30~20:30, 주말(금~일) 및 공휴일 10:30~21:00  
            * 식당가 폐점 30분 전 주문 마감  
            * 일부 매장 30분 조기폐점""",
-           "parking_hours": "AM 10:30 ~ PM 21:00"
+           "parking_hours": "AM 10:30 ~ PM 21:00",
+           "image_url": "https://app.premiumoutlets.co.kr/assets/attach/view/storeImage/5/storeImageKrPc?cache=2025-08-06T16:25:36"
         },
         "여주 프리미엄 아울렛": {
             "address": "경기도 여주시 명품로 360",
@@ -150,7 +151,8 @@ def load_outlet_data():
             * 동절기(11~4월) 일반 매장 영업시간 안내 - 평일(월~목) 10:30~20:30, 주말(금~일) 및 공휴일 10:30~21:00  
             * 식당가 폐점 30분 전 주문 마감  
             * 일부 매장 30분 조기폐점""",
-            "parking_hours": "AM 10:30 ~ PM 21:00"
+            "parking_hours": "AM 10:30 ~ PM 21:00",
+            "image_url": "https://app.premiumoutlets.co.kr/assets/attach/view/storeImage/4/storeImageKrPc?cache=2025-08-06T16:25:44"
         },
         "파주 프리미엄 아울렛": {
             "address": "경기도 파주시 탄현면 필승로 200",
@@ -169,7 +171,8 @@ def load_outlet_data():
             "note": """\
             * 동절기(11~4월) 일반 매장 영업시간 안내 - 평일(월~목) 10:30~20:30, 주말(금~일) 및 공휴일 10:30~21:00
             * 식당가 오전 11시 오픈, 폐점 30분 전 주문 마감""",
-            "parking_hours": "AM 10:30 ~ PM 21:00"
+            "parking_hours": "AM 10:30 ~ PM 21:00",
+            "image_url": "https://app.premiumoutlets.co.kr/assets/attach/view/storeImage/2/storeImageKrPc?cache=2025-08-06T16:26:01"
         },
         "부산 프리미엄 아울렛": {
             "address": "부산광역시 기장군 장안읍 정관로 1133",
@@ -190,7 +193,8 @@ def load_outlet_data():
             "note": """\
             * 동절기(11~4월) 일반 매장 영업시간 안내 - 평일(월~목) 10:30~20:30, 주말(금~일) 및 공휴일 10:30~21:00
             * 일부 매장 30분 조기폐점""",
-            "parking_hours": "AM 10:30 ~ PM 21:00"
+            "parking_hours": "AM 10:30 ~ PM 21:00",
+            "image_url":"https://app.premiumoutlets.co.kr/assets/attach/view/storeImage/3/storeImageKrPc?cache=2025-08-06T16:25:53"
         },
         "제주 프리미엄 아울렛": {
             "address": "제주특별자치도 서귀포시 안덕면 신화역사로 304번길 38",
@@ -203,7 +207,8 @@ def load_outlet_data():
             "hours": "AM 10:30 - PM 21:00",
             "note": """\
             * 일부 매장 조기폐점 (오후 8시 30분까지, 상세 매장은 FAQ에서 확인 가능)""",
-            "parking_hours": "숙박 여부에 따라 상이함"
+            "parking_hours": "숙박 여부에 따라 상이함",
+            "image_url": "https://app.premiumoutlets.co.kr/assets/attach/view/storeImage/6/storeImageKrPc?cache=2025-08-06T16:24:43"
         }
     }
 
@@ -294,6 +299,18 @@ def main():
         if st.button("🔄 새로고침"):
             st.cache_data.clear()
             st.rerun()
+
+    outlet_info = outlet_data[selected_outlet]
+    image_url = outlet_info.get("image_url") 
+
+    # 이미지 출력 (매장별 사진)
+    if image_url:
+        st.image(image_url, use_column_width=True)
+
+    # 매장 이름과 함께 서비스 제목 표시
+    st.header(f"### {selected_outlet} {service_menu}")
+    st.markdown("---")
+
     
     # 메인 컨텐츠
     if service_menu == "주차 현황":
