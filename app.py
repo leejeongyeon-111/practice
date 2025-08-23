@@ -27,7 +27,7 @@ st.markdown("""
     }
     
     .outlet-card {
-        background: white;
+        background: #2b2b2b;
         padding: 1.5rem;
         border-radius: 10px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -37,7 +37,7 @@ st.markdown("""
     
     .metric-card {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
+        color: #f1f1f1;
         padding: 1.5rem;
         border-radius: 10px;
         text-align: center;
