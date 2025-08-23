@@ -7,14 +7,14 @@ import datetime
 import random
 import time
 
-# 페이지 설정
+
 st.set_page_config(
     page_title="신세계사이먼 프리미엄 아울렛",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# CSS 스타일링
+
 st.markdown("""
 <style>
     .main-header {
@@ -27,7 +27,7 @@ st.markdown("""
     }
     
     .outlet-card {
-        background: white;
+        background: gray;
         padding: 1.5rem;
         border-radius: 10px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
