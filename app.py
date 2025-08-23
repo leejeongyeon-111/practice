@@ -100,7 +100,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# 매장 데이터
+
 @st.cache_data
 def load_outlet_data():
     return {
@@ -211,7 +211,7 @@ def load_outlet_data():
         }
     }
 
-# 실시간 주차 현황 시뮬레이션
+
 @st.cache_data(ttl=60)
 def generate_parking_status(outlet_data):
     """실시간 주차 현황을 시뮬레이션합니다."""
@@ -222,7 +222,7 @@ def generate_parking_status(outlet_data):
         total_occupied = 0
         
         for area in data["areas"]:
-            # 시뮬레이션을 위해 랜덤 값 생성
+            
             base_rate = 0.6 if area["type"] == "indoor" else 0.5
             variation = random.uniform(-0.2, 0.3)
             occupancy_rate = max(0.1, min(0.95, base_rate + variation))
@@ -262,11 +262,11 @@ def get_status_indicator(occupancy_rate):
         return "혼잡", "status-low"
 
 def main():
-    # 데이터 로드
+    
     outlet_data = load_outlet_data()
     parking_status = generate_parking_status(outlet_data)
     
-    # 사이드바
+ 
     with st.sidebar:
         st.header("매장 선택")
         selected_outlet = st.selectbox(
@@ -286,12 +286,12 @@ def main():
         st.markdown("---")
         st.info("💡 데이터는 1분마다 자동 갱신됩니다.")
         
-        # 새로고침 버튼
+        
         if st.button("🔄 새로고침"):
             st.cache_data.clear()
             st.rerun()
 
-    # 메인 헤드 배너
+    
     st.markdown("""
     <div class="main-header">
     <h1 style="font-size: 36px; margin: 0;">PREMIUM OUTLETS</h1>
@@ -308,7 +308,7 @@ def main():
     
     st.markdown("---")
 
-    # 메인 컨텐츠
+ 
     if service_menu == "주차 현황":
         show_parking_status(selected_outlet, outlet_data, parking_status)
     elif service_menu == "매장 정보":
@@ -323,7 +323,7 @@ def show_parking_status(selected_outlet, outlet_data, parking_status):
     outlet_info = outlet_data[selected_outlet]
     status = parking_status[selected_outlet]
     
-    # 전체 현황 요약
+
     col1, col2, col3 = st.columns(3)
     
     with col1:
@@ -352,7 +352,7 @@ def show_parking_status(selected_outlet, outlet_data, parking_status):
     
     st.markdown("---")
     
-    # 주차구역별 상세 현황
+   
     st.subheader("📍 주차구역별 현황")
     
     cols = st.columns(2)
