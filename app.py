@@ -28,7 +28,7 @@ st.markdown("""
     
     .outlet-card {
         background: var(--color-background);
-        color: var(--text-color;
+        color: var(--text-color);
         padding: 1.5rem;
         border-radius: 10px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
