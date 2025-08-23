@@ -37,7 +37,7 @@ st.markdown("""
     
     .metric-card {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: navy;
+        color: white;
         padding: 1.5rem;
         border-radius: 10px;
         text-align: center;
